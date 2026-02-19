@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Schedulify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f0f11;
+      --surface: #18181c;
+      --border: #2a2a30;
+      --accent: #6ee7b7;
+      --accent-dim: rgba(110,231,183,0.12);
+      --text: #e8e8ec;
+      --muted: #888896;
+      --heading: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Sora', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 64px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(110,231,183,0.25);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .app-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+
+    .app-badge span {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--heading);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.05s; }
+    section:nth-child(3) { animation-delay: 0.1s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.2s; }
+    section:nth-child(6) { animation-delay: 0.25s; }
+    section:nth-child(7) { animation-delay: 0.3s; }
+    section:nth-child(8) { animation-delay: 0.35s; }
+    section:nth-child(9) { animation-delay: 0.4s; }
+    section:nth-child(10) { animation-delay: 0.45s; }
+
+    h2 {
+      font-size: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--heading);
+      margin: 24px 0 8px;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    /* Card blocks */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .card + .card {
+      margin-top: 12px;
+    }
+
+    /* Third party */
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .service-name {
+      font-weight: 600;
+      color: var(--heading);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .service a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(110,231,183,0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .service a:hover { border-color: var(--accent); }
+
+    /* Rights list */
+    .rights-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rights-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rights-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--accent-dim);
+      border: 1px solid rgba(110,231,183,0.2);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-box .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-box .name {
+      font-weight: 600;
+      color: var(--heading);
+      font-size: 1rem;
+    }
+
+    .contact-box a {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f0f11;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .contact-box a:hover { opacity: 0.85; }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @media (max-width: 560px) {
+      .rights-list { grid-template-columns: 1fr; }
+      .contact-box { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="app-badge">
+        <span class="dot"></span>
+        <span>Schedulify</span>
+      </div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">EFFECTIVE DATE: FEBRUARY 19, 2025 &nbsp;·&nbsp; LAST UPDATED: FEBRUARY 19, 2025</p>
+    </header>
+
+    <section>
+      <h2>Introduction</h2>
+      <div class="card">
+        <p>This Privacy Policy describes how <strong>Serhii Belei</strong> ("we", "us", or "our") collects, uses, and protects your personal information when you use the <strong>Schedulify</strong> mobile application ("the App").</p>
+        <p style="margin-bottom:0">By using Schedulify, you agree to the collection and use of information as described in this policy.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Information We Collect</h2>
+      <div class="card">
+        <h3>Account Information</h3>
+        <p>When you sign in via Google, we receive your name and email address from your Google account.</p>
+        <h3>Schedule & Absence Data</h3>
+        <p>We store data you enter into the App, including your class schedules, absence records, and related academic information.</p>
+        <h3>Push Notification Token</h3>
+        <p style="margin-bottom:0">If you enable push notifications, we collect a device token to deliver notifications to your device.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>How We Use Your Information</h2>
+      <div class="card">
+        <p>We use your data solely to:</p>
+        <p>· Authenticate your identity and provide access to your account<br>
+           · Display and sync your personal schedule and absence data<br>
+           · Send you relevant push notifications (e.g. schedule changes, reminders)<br>
+           · Maintain and improve the App's functionality</p>
+        <p style="margin-bottom:0">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Third-Party Services</h2>
+      <div class="service">
+        <div class="service-name">Google Sign-In</div>
+        <div class="service-desc">Used for authentication. When you sign in with Google, we receive your name and email address.</div>
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy →</a>
+      </div>
+      <div class="service">
+        <div class="service-name">Firebase (Google LLC)</div>
+        <div class="service-desc">Used for data storage, backend services, and push notification delivery via Firebase Cloud Messaging.</div>
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy →</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data Storage & Security</h2>
+      <div class="card">
+        <p style="margin-bottom:0">Your data is stored securely using Firebase infrastructure provided by Google LLC, hosted on Google Cloud servers. We implement reasonable technical and organizational measures to protect your data against unauthorized access, loss, or disclosure.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data Retention</h2>
+      <div class="card">
+        <p style="margin-bottom:0">We retain your data for as long as your account is active. You may request deletion of your account and all associated data at any time by contacting us. We will process your request within 30 days.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Children's Privacy</h2>
+      <div class="card">
+        <p style="margin-bottom:0">Schedulify is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Your Rights</h2>
+      <ul class="rights-list">
+        <li>Access your personal data</li>
+        <li>Request data correction</li>
+        <li>Request data deletion</li>
+        <li>Withdraw consent anytime</li>
+      </ul>
+      <p style="margin-top:14px; font-size:0.875rem; color:var(--muted)">To exercise any of these rights, contact us at the email below.</p>
+    </section>
+
+    <section>
+      <h2>Changes to This Policy</h2>
+      <div class="card">
+        <p style="margin-bottom:0">We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date at the top of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact Us</h2>
+      <div class="contact-box">
+        <div>
+          <div class="label">DEVELOPER</div>
+          <div class="name">Serhii Belei</div>
+        </div>
+        <a href="mailto:sergiy.beley@gmail.com">sergiy.beley@gmail.com</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 SERHII BELEI · SCHEDULIFY · ALL RIGHTS RESERVED
+    </footer>
+
+  </div>
+</body>
+</html>
