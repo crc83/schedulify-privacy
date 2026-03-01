@@ -121,8 +121,6 @@ Then open http://localhost:8000 in your browser.
 
 - **Live Privacy Policy**: https://crc83.github.io/schedulify-privacy/
 - **Marketing Site**: (link to marketing site when deployed)
-- **GitHub Repository**: https://github.com/crc83/schedulify-privacy
-- **Main App Repository**: https://github.com/crc83/schedulify
 
 ## 📧 Contact
 
