@@ -1,411 +1,805 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Schedulify</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0f0f11;
-      --surface: #18181c;
-      --border: #2a2a30;
-      --accent: #6ee7b7;
-      --accent-dim: rgba(110,231,183,0.12);
-      --text: #e8e8ec;
-      --muted: #888896;
-      --heading: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schedulify Privacy Policy - Learn how we collect, use, and protect your personal information.">
+    <title>Privacy Policy — Schedulify</title>
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/demo-logo192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/demo-logo512.png">
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Sora', sans-serif;
-      font-weight: 300;
-      line-height: 1.8;
-      min-height: 100vh;
-    }
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    /* Background grid */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 80px 24px 120px;
-    }
+    <style>
+        /* ==========================================
+           CSS Variables - Using demo-org colors
+           ========================================== */
+        :root {
+            --primary-color: #7092bf;
+            --primary-dark: #5a7a9f;
+            --primary-light: #8faad1;
+            --accent-color: #4a90e2;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
 
-    /* Header */
-    header {
-      margin-bottom: 64px;
-      animation: fadeUp 0.6s ease both;
-    }
+        /* ==========================================
+           Reset & Base Styles
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .app-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(110,231,183,0.25);
-      border-radius: 100px;
-      padding: 6px 14px;
-      margin-bottom: 28px;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .app-badge .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s ease infinite;
-    }
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background: var(--bg-light);
+        }
 
-    .app-badge span {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+        /* ==========================================
+           Header
+           ========================================== */
+        .header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 0;
+        }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 600;
-      color: var(--heading);
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-    .meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
+        .logo {
+            width: 48px;
+            height: 48px;
+        }
 
-    /* Sections */
-    section {
-      margin-bottom: 48px;
-      animation: fadeUp 0.6s ease both;
-    }
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
 
-    section:nth-child(2) { animation-delay: 0.05s; }
-    section:nth-child(3) { animation-delay: 0.1s; }
-    section:nth-child(4) { animation-delay: 0.15s; }
-    section:nth-child(5) { animation-delay: 0.2s; }
-    section:nth-child(6) { animation-delay: 0.25s; }
-    section:nth-child(7) { animation-delay: 0.3s; }
-    section:nth-child(8) { animation-delay: 0.35s; }
-    section:nth-child(9) { animation-delay: 0.4s; }
-    section:nth-child(10) { animation-delay: 0.45s; }
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
 
-    h2 {
-      font-size: 0.75rem;
-      font-family: 'DM Mono', monospace;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .brand-tagline {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
 
-    h2::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.6;
-    }
+        /* ==========================================
+           Main Container
+           ========================================== */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
 
-    h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--heading);
-      margin: 24px 0 8px;
-    }
+        /* ==========================================
+           Page Header
+           ========================================== */
+        .page-header {
+            margin-bottom: 48px;
+            animation: fadeUp 0.6s ease both;
+        }
 
-    p {
-      color: var(--text);
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    /* Card blocks */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
+        .page-title .material-icons {
+            font-size: 40px;
+            color: var(--primary-color);
+        }
 
-    .card + .card {
-      margin-top: 12px;
-    }
+        .page-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
 
-    /* Third party */
-    .service {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 12px;
-    }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-    .service-name {
-      font-weight: 600;
-      color: var(--heading);
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-    }
+        .meta-item .material-icons {
+            font-size: 18px;
+            color: var(--primary-color);
+        }
 
-    .service-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
+        /* ==========================================
+           Sections
+           ========================================== */
+        section {
+            margin-bottom: 48px;
+            animation: fadeUp 0.6s ease both;
+        }
 
-    .service a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(110,231,183,0.3);
-      padding-bottom: 1px;
-      transition: border-color 0.2s;
-    }
+        section:nth-child(2) { animation-delay: 0.05s; }
+        section:nth-child(3) { animation-delay: 0.1s; }
+        section:nth-child(4) { animation-delay: 0.15s; }
+        section:nth-child(5) { animation-delay: 0.2s; }
+        section:nth-child(6) { animation-delay: 0.25s; }
+        section:nth-child(7) { animation-delay: 0.3s; }
+        section:nth-child(8) { animation-delay: 0.35s; }
+        section:nth-child(9) { animation-delay: 0.4s; }
+        section:nth-child(10) { animation-delay: 0.45s; }
 
-    .service a:hover { border-color: var(--accent); }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    /* Rights list */
-    .rights-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+        .section-title .material-icons {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
 
-    .rights-list li {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 0.875rem;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .section-subtitle {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
 
-    .rights-list li::before {
-      content: '→';
-      color: var(--accent);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-    }
+        /* ==========================================
+           Cards
+           ========================================== */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
 
-    /* Contact */
-    .contact-box {
-      background: var(--accent-dim);
-      border: 1px solid rgba(110,231,183,0.2);
-      border-radius: 12px;
-      padding: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+        .card p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
 
-    .contact-box .label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.06em;
-    }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
 
-    .contact-box .name {
-      font-weight: 600;
-      color: var(--heading);
-      font-size: 1rem;
-    }
+        .card ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
 
-    .contact-box a {
-      display: inline-block;
-      background: var(--accent);
-      color: #0f0f11;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
+        .card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
 
-    .contact-box a:hover { opacity: 0.85; }
+        /* ==========================================
+           Service Cards
+           ========================================== */
+        .service {
+            background: var(--bg-white);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
 
-    /* Footer */
-    footer {
-      margin-top: 80px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      animation: fadeUp 0.6s 0.5s ease both;
-    }
+        .service:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-lg);
+        }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+        .service-name {
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
+        .service-name .material-icons {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
 
-    @media (max-width: 560px) {
-      .rights-list { grid-template-columns: 1fr; }
-      .contact-box { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .service a {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .service a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .service a .material-icons {
+            font-size: 16px;
+        }
+
+        /* ==========================================
+           Rights Grid
+           ========================================== */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .right-item {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .right-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .right-item .material-icons {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .right-item span {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           Contact Box
+           ========================================== */
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-header {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-header .material-icons {
+            font-size: 32px;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            color: white;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-btn .material-icons {
+            font-size: 20px;
+        }
+
+        /* ==========================================
+           Info Box (Highlight)
+           ========================================== */
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+            color: var(--text-dark);
+        }
+
+        /* ==========================================
+           Footer
+           ========================================== */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            padding: 2rem 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ==========================================
+           Animations
+           ========================================== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================
+           Responsive Design
+           ========================================== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .page-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* ==========================================
+           Accessibility
+           ========================================== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        a:focus,
+        .contact-btn:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-
-    <header>
-      <div class="app-badge">
-        <span class="dot"></span>
-        <span>Schedulify</span>
-      </div>
-      <h1>Privacy Policy</h1>
-      <p class="meta">EFFECTIVE DATE: FEBRUARY 19, 2025 &nbsp;·&nbsp; LAST UPDATED: FEBRUARY 19, 2025</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="images/demo-logo192.png" alt="Schedulify Logo" class="logo">
+            <div class="brand">
+                <div class="brand-name">Schedulify</div>
+                <div class="brand-tagline">Therapy Scheduling</div>
+            </div>
+        </div>
     </header>
 
-    <section>
-      <h2>Introduction</h2>
-      <div class="card">
-        <p>This Privacy Policy describes how <strong>Serhii Belei</strong> ("we", "us", or "our") collects, uses, and protects your personal information when you use the <strong>Schedulify</strong> mobile application ("the App").</p>
-        <p style="margin-bottom:0">By using Schedulify, you agree to the collection and use of information as described in this policy.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Information We Collect</h2>
-      <div class="card">
-        <h3>Account Information</h3>
-        <p>When you sign in via Google, we receive your name and email address from your Google account.</p>
-        <h3>Schedule & Absence Data</h3>
-        <p>We store data you enter into the App, including your class schedules, absence records, and related academic information.</p>
-        <h3>Push Notification Token</h3>
-        <p style="margin-bottom:0">If you enable push notifications, we collect a device token to deliver notifications to your device.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>How We Use Your Information</h2>
-      <div class="card">
-        <p>We use your data solely to:</p>
-        <p>· Authenticate your identity and provide access to your account<br>
-           · Display and sync your personal schedule and absence data<br>
-           · Send you relevant push notifications (e.g. schedule changes, reminders)<br>
-           · Maintain and improve the App's functionality</p>
-        <p style="margin-bottom:0">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Third-Party Services</h2>
-      <div class="service">
-        <div class="service-name">Google Sign-In</div>
-        <div class="service-desc">Used for authentication. When you sign in with Google, we receive your name and email address.</div>
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy →</a>
-      </div>
-      <div class="service">
-        <div class="service-name">Firebase (Google LLC)</div>
-        <div class="service-desc">Used for data storage, backend services, and push notification delivery via Firebase Cloud Messaging.</div>
-        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy →</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Data Storage & Security</h2>
-      <div class="card">
-        <p style="margin-bottom:0">Your data is stored securely using Firebase infrastructure provided by Google LLC, hosted on Google Cloud servers. We implement reasonable technical and organizational measures to protect your data against unauthorized access, loss, or disclosure.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Data Retention</h2>
-      <div class="card">
-        <p style="margin-bottom:0">We retain your data for as long as your account is active. You may request deletion of your account and all associated data at any time by contacting us. We will process your request within 30 days.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Children's Privacy</h2>
-      <div class="card">
-        <p style="margin-bottom:0">Schedulify is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Your Rights</h2>
-      <ul class="rights-list">
-        <li>Access your personal data</li>
-        <li>Request data correction</li>
-        <li>Request data deletion</li>
-        <li>Withdraw consent anytime</li>
-      </ul>
-      <p style="margin-top:14px; font-size:0.875rem; color:var(--muted)">To exercise any of these rights, contact us at the email below.</p>
-    </section>
-
-    <section>
-      <h2>Changes to This Policy</h2>
-      <div class="card">
-        <p style="margin-bottom:0">We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date at the top of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Contact Us</h2>
-      <div class="contact-box">
-        <div>
-          <div class="label">DEVELOPER</div>
-          <div class="name">Serhii Belei</div>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <span class="material-icons">privacy_tip</span>
+                Privacy Policy
+            </h1>
+            <div class="page-meta">
+                <div class="meta-item">
+                    <span class="material-icons">event</span>
+                    <span>Effective Date: February 19, 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="material-icons">update</span>
+                    <span>Last Updated: February 19, 2025</span>
+                </div>
+            </div>
         </div>
-        <a href="mailto:sergiy.beley@gmail.com">sergiy.beley@gmail.com</a>
-      </div>
-    </section>
 
-    <footer>
-      © 2025 SERHII BELEI · SCHEDULIFY · ALL RIGHTS RESERVED
+        <!-- Introduction -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">description</span>
+                Introduction
+            </h2>
+            <div class="card">
+                <p>This Privacy Policy describes how <strong>Serhii Belei</strong> ("we", "us", or "our") collects, uses, and protects your personal information when you use the <strong>Schedulify</strong> mobile application ("the App").</p>
+                <p>By using Schedulify, you agree to the collection and use of information as described in this policy. We are committed to protecting your privacy and ensuring your data is handled with care and transparency.</p>
+            </div>
+        </section>
+
+        <!-- Information We Collect -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">folder_open</span>
+                Information We Collect
+            </h2>
+            <div class="card">
+                <h3 class="section-subtitle">Account Information</h3>
+                <p>When you sign in via Google, we receive your name and email address from your Google account. This information is used to identify you and provide access to your personal account within the App.</p>
+
+                <h3 class="section-subtitle">Schedule & Absence Data</h3>
+                <p>We store data you enter into the App, including your therapy schedules, absence records, therapist availability, and related organizational information. This data is essential for the App's core functionality.</p>
+
+                <h3 class="section-subtitle">Push Notification Token</h3>
+                <p>If you enable push notifications, we collect a device token to deliver notifications to your device. This allows us to send you schedule updates, absence alerts, and other important information in real-time.</p>
+            </div>
+        </section>
+
+        <!-- How We Use Your Information -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">verified_user</span>
+                How We Use Your Information
+            </h2>
+            <div class="card">
+                <p>We use your data solely to:</p>
+                <ul>
+                    <li><strong>Authenticate your identity</strong> and provide access to your account</li>
+                    <li><strong>Display and sync</strong> your personal schedule and absence data</li>
+                    <li><strong>Send relevant push notifications</strong> such as schedule changes and reminders</li>
+                    <li><strong>Maintain and improve</strong> the App's functionality and user experience</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <p><strong>Important:</strong> We do not sell, rent, or share your personal data with third parties for marketing purposes. Your data is used exclusively to provide and improve the Schedulify service.</p>
+            </div>
+        </section>
+
+        <!-- Third-Party Services -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">extension</span>
+                Third-Party Services
+            </h2>
+
+            <div class="service">
+                <div class="service-name">
+                    <span class="material-icons">account_circle</span>
+                    Google Sign-In
+                </div>
+                <div class="service-desc">
+                    Used for secure authentication. When you sign in with Google, we receive your name and email address to create and manage your account.
+                </div>
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+                    View Google Privacy Policy
+                    <span class="material-icons">open_in_new</span>
+                </a>
+            </div>
+
+            <div class="service">
+                <div class="service-name">
+                    <span class="material-icons">cloud</span>
+                    Firebase (Google LLC)
+                </div>
+                <div class="service-desc">
+                    Used for data storage, backend services, and push notification delivery via Firebase Cloud Messaging. Your data is stored securely on Google Cloud infrastructure.
+                </div>
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">
+                    View Firebase Privacy Policy
+                    <span class="material-icons">open_in_new</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Data Storage & Security -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">security</span>
+                Data Storage & Security
+            </h2>
+            <div class="card">
+                <p>Your data is stored securely using Firebase infrastructure provided by Google LLC, hosted on Google Cloud servers. We implement reasonable technical and organizational measures to protect your data against unauthorized access, loss, or disclosure.</p>
+                <p>Our security measures include:</p>
+                <ul>
+                    <li>Encrypted data transmission using HTTPS/SSL</li>
+                    <li>Secure authentication via Google Sign-In</li>
+                    <li>Regular security updates and monitoring</li>
+                    <li>Access controls and permission-based data access</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Data Retention -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">schedule</span>
+                Data Retention
+            </h2>
+            <div class="card">
+                <p>We retain your data for as long as your account is active or as needed to provide you with the Schedulify service. You may request deletion of your account and all associated data at any time by contacting us.</p>
+                <p>When you request account deletion, we will process your request within 30 days and permanently delete all your personal information from our systems, except where we are required to retain certain data by law.</p>
+            </div>
+        </section>
+
+        <!-- Children's Privacy -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">child_care</span>
+                Children's Privacy
+            </h2>
+            <div class="card">
+                <p>Schedulify is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+                <p>If you believe a child has provided us with personal data, please contact us immediately at the email address below and we will delete it promptly from our systems.</p>
+            </div>
+        </section>
+
+        <!-- Your Rights -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">gavel</span>
+                Your Rights
+            </h2>
+            <div class="card">
+                <p>You have the following rights regarding your personal data:</p>
+            </div>
+
+            <div class="rights-grid">
+                <div class="right-item">
+                    <span class="material-icons">visibility</span>
+                    <span>Access your personal data</span>
+                </div>
+                <div class="right-item">
+                    <span class="material-icons">edit</span>
+                    <span>Request data correction</span>
+                </div>
+                <div class="right-item">
+                    <span class="material-icons">delete</span>
+                    <span>Request data deletion</span>
+                </div>
+                <div class="right-item">
+                    <span class="material-icons">block</span>
+                    <span>Withdraw consent anytime</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p>To exercise any of these rights, please contact us using the contact information provided below. We will respond to your request within 30 days.</p>
+            </div>
+        </section>
+
+        <!-- Changes to This Policy -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">sync</span>
+                Changes to This Policy
+            </h2>
+            <div class="card">
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.</p>
+                <p>We will notify you of significant changes by updating the "Last updated" date at the top of this page and, where appropriate, by sending you a notification through the App or via email.</p>
+                <p>Continued use of the App after changes to this policy constitutes your acceptance of the updated Privacy Policy.</p>
+            </div>
+        </section>
+
+        <!-- Contact Us -->
+        <section>
+            <h2 class="section-title">
+                <span class="material-icons">contact_mail</span>
+                Contact Us
+            </h2>
+            <div class="card">
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal data, please don't hesitate to contact us:</p>
+            </div>
+
+            <div class="contact-box">
+                <h3 class="contact-header">
+                    <span class="material-icons">person</span>
+                    Get in Touch
+                </h3>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-label">Developer</div>
+                        <div class="contact-name">Serhii Belei</div>
+                    </div>
+                    <a href="mailto:sergiy.beley@gmail.com" class="contact-btn">
+                        <span class="material-icons">email</span>
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="images/demo-logo192.png" alt="Schedulify" class="footer-logo">
+                <div class="footer-text">Therapy Scheduling</div>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/crc83/schedulify" target="_blank">GitHub</a>
+                <a href="mailto:sergiy.beley@gmail.com">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Serhii Belei · Schedulify · All Rights Reserved
+        </div>
     </footer>
-
-  </div>
 </body>
 </html>
